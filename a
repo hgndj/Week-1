@@ -1,0 +1,56 @@
+#include&lt;stdio.h&gt;
+int main()
+{
+int state=0,i=0;
+char token,input[20];
+printf(&quot;Enter input string \t :&quot;);
+scanf(&quot;%s&quot;,input);
+while((token=input[i++])!=&#39;\0&#39;)
+{
+switch(state)
+{
+case 0: if(token==&#39;0&#39;)
+state=1;
+else if(token==&#39;1&#39;)
+state=2;
+else
+{
+printf(&quot;Invalid token&quot;);
+}
+break;
+case 1: if(token==&#39;0&#39;)
+state=0;
+else if(token==&#39;1&#39;)
+state=3;
+
+else
+{
+printf(&quot;Invalid token&quot;);
+}
+break;
+case 2: if(token==&#39;0&#39;)
+state=3;
+else if(token==&#39;1&#39;)
+state=0;
+else
+{
+printf(&quot;Invalid token&quot;);
+}
+break;
+case 3: if(token==&#39;0&#39;)
+state=2;
+else if(token==&#39;1&#39;)
+state=1;
+else
+{
+printf(&quot;Invalid token&quot;);
+}
+break;
+}
+}
+if(state==0)
+printf(&quot;\n\nString accepted\n\n&quot;);
+else
+printf(&quot;\n\nString not accepted\n\n&quot;);
+
+}
